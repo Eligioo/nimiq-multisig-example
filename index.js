@@ -1,6 +1,5 @@
 const Nimiq = require("@nimiq/core")
 const Nim = require("./Nimiq")
-const fs = require("fs")
 
 async function generateMultiSigAndSignTransaction() {
     try {
@@ -19,6 +18,9 @@ async function generateMultiSigAndSignTransaction() {
         const MultiSigWal1 = Nimiq.MultiSigWallet.fromPublicKeys(KeyPairs[0], 3, PublicKeys);
         const MultiSigWal2 = Nimiq.MultiSigWallet.fromPublicKeys(KeyPairs[1], 3, PublicKeys);
         const MultiSigWal3 = Nimiq.MultiSigWallet.fromPublicKeys(KeyPairs[2], 3, PublicKeys);
+
+        console.log(MultiSigWal1)
+        return
 
         const commitmentPair1 = MultiSigWal1.createCommitment();
         const commitmentPair2 = MultiSigWal2.createCommitment();
