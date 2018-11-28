@@ -19,9 +19,6 @@ async function generateMultiSigAndSignTransaction() {
         const MultiSigWal2 = Nimiq.MultiSigWallet.fromPublicKeys(KeyPairs[1], 3, PublicKeys);
         const MultiSigWal3 = Nimiq.MultiSigWallet.fromPublicKeys(KeyPairs[2], 3, PublicKeys);
 
-        console.log(MultiSigWal1)
-        return
-
         const commitmentPair1 = MultiSigWal1.createCommitment();
         const commitmentPair2 = MultiSigWal2.createCommitment();
         const commitmentPair3 = MultiSigWal3.createCommitment();
