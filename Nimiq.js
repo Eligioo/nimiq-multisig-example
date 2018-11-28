@@ -26,6 +26,10 @@ module.exports = {
         
         $.network.connect();
     },
+    
+    getHeight(){
+        return $.blockchain.height
+    },
 
     async sendTranscation(tx) {
         console.log("Send Transaction")

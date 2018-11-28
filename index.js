@@ -27,8 +27,8 @@ async function generateMultiSigAndSignTransaction() {
         const combinedCommitment = Nimiq.Commitment.sum([commitmentPair1.commitment, commitmentPair2.commitment, commitmentPair3.commitment]);
         const combinedPublicKey = Nimiq.PublicKey.sum([KeyPairs[0].publicKey, KeyPairs[1].publicKey, KeyPairs[2].publicKey]);
 
-
-        let tx = MultiSigWal1.createTransaction(Nimiq.Address.fromUserFriendlyAddress("NQ06 TL1V 3LDN K71D 8S71 AHFN YBFJ LSJY 278T"), Nimiq.Policy.coinsToSatoshis(1), 0, 235489);
+        //reciever, NIM in satoshi, fee, blockheight
+        let tx = MultiSigWal1.createTransaction(Nimiq.Address.fromUserFriendlyAddress("NQ06 TL1V 3LDN K71D 8S71 AHFN YBFJ LSJY 278T"), Nimiq.Policy.coinsToSatoshis(1), 0, Nim.getHeight());
         const partialSignature1 = MultiSigWal1.partiallySignTransaction(tx, PublicKeys,
             combinedCommitment, commitmentPair1.secret);
         const partialSignature2 = MultiSigWal2.partiallySignTransaction(tx, PublicKeys,
